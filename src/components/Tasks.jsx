@@ -1,5 +1,5 @@
 import React from 'react'
-import {ChevronRight, TrashIcon} from "lucide-react"
+import {CheckIcon, ChevronRight, TrashIcon} from "lucide-react"
 import { useNavigate } from 'react-router-dom'
 import ButtonComponent from './ButtonComponent'
 const Tasks = (props) => {
@@ -20,8 +20,9 @@ const Tasks = (props) => {
             <button 
             onClick={() => props.checkTask(tsk.id)}
              className={
-                `bg-slate-500 text-left w-full text-white p-2 rounded-md cursor-pointer ${tsk.isCompleted && 'line-through'}`
+                `bg-slate-500 text-left w-full flex text-white p-2 rounded-md cursor-pointer ${tsk.isCompleted && 'line-through'}`
                 }>
+            {tsk.isCompleted && <span className='text-green-500'><CheckIcon/></span>}
             {tsk.title}
             </button>
 
